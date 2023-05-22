@@ -46,4 +46,7 @@ int main()
         }
         printf("\n");
     }
+
+    free(matrizOriginal);
+    free(matrizTranspuesta);
 }
