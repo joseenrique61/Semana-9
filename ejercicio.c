@@ -13,17 +13,37 @@ int main()
     scanf("%i", &y);
 
     // Inicializamos las variables
-    int **matriz = calloc(x, sizeof(int *));
+    int **matrizOriginal = calloc(x, sizeof(int *));
 
-    // Ponemos números aleatorios a cada elemento de las matrices "x" y "y" y los sumamos en "z"
-    for (int i = 0; i < 3; i++)
+    // Ponemos números aleatorios a cada elemento de la matriz "matrizOriginal".
+    printf("Matriz original: \n\n");
+    for (int i = 0; i < x; i++)
     {
-        matriz[i] = calloc(y, sizeof(int));
-        for (int j = 0; j < 2; j++)
+        matrizOriginal[i] = calloc(y, sizeof(int));
+        for (int j = 0; j < y; j++)
         {
-            matriz[i][j] = rand();
+            matrizOriginal[i][j] = rand() % 101;
+            printf("%i ", matrizOriginal[i][j]);
         }
+        printf("\n");
     }
 
-    
+    // Definimos la matriz matrizTranspuesta
+    int **matrizTranspuesta = calloc(y, sizeof(int *));
+    for (int i = 0; i < y; i++)
+    {
+        matrizTranspuesta[i] = calloc(x, sizeof(int));
+    }
+
+    // Asignamos los valores de la matrizOriginal con columnas y filas invertidas a la matrizTranspuesta, para que se transponga.
+    printf("\nMatriz transpuesta: \n\n");
+    for (int i = 0; i < y; i++)
+    {
+        for (int j = 0; j < x; j++)
+        {
+            matrizTranspuesta[i][j] = matrizOriginal[j][i];
+            printf("%i ", matrizTranspuesta[i][j]);
+        }
+        printf("\n");
+    }
 }
