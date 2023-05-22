@@ -6,15 +6,24 @@ int main()
     // Ponemos la semilla para el número aleatorio
     srand(time(NULL));
 
+    int x, y = 0;
+    printf("Ingrese la cantidad de filas: ");
+    scanf("%i", &x);
+    printf("Ingrese la cantidad de columnas: ");
+    scanf("%i", &y);
+
     // Inicializamos las variables
-    int x[3][2] = {{0, 0}, {0, 0}, {0, 0}};
+    int **matriz = calloc(x, sizeof(int *));
 
     // Ponemos números aleatorios a cada elemento de las matrices "x" y "y" y los sumamos en "z"
     for (int i = 0; i < 3; i++)
     {
+        matriz[i] = calloc(y, sizeof(int));
         for (int j = 0; j < 2; j++)
         {
-            x[i][j] = rand();
+            matriz[i][j] = rand();
         }
     }
+
+    
 }
